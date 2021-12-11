@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div align="center"><h1>Favori Futbol Takım Anketine Hoş Geldiniz.</h1></div>
+
+<!--/*@thymesVar id="footballSurvey" type="com.example.survey.model.FootballSurvey"*/-->
+<form align="center" action="#"
+      th:action="@{/updateFootball/{id}(id=${football.id})}"
+      th:object="${football}"
+      method="post">
+    <label for="name">Ad:</label><br>
+    <input type="text" th:field="*{name}" id="name" required>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+
+    <label for="surname">Soyad:</label><br>
+    <input type="text" th:field="*{surname}" id="surname" required>
+    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span><br>
+
+    <label for="gender">Cinsiyet:</label><br>
+    <input type="text" th:field="*{gender}" id="gender" required>
+    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender} "></span><br>
+
+    <label for="birthDate">Doğum günü:</label><br>
+    <input type="text" th:field="*{birthDate}" id="birthDate" placeholder="YYYY-AA-GG" required>
+    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span><br>
+
+    <label for="footballTeam">Takımı:</label><br>
+    <input type="text" th:field="*{footballTeam}" id="footballTeam" required>
+    <span th:if="${#fields.hasErrors('footballTeam')}" th:errors="*{footballTeam}"></span><br>
+
+    <label for="whyFootballTeam">Açıklaması:</label><br>
+    <input type="text" th:field="*{whyFootballTeam}" id="whyFootballTeam" required>
+    <span th:if="${#fields.hasErrors('whyFootballTeam')}" th:errors="*{whyFootballTeam}"></span><br>
+
+    <label for="surveyName">Anketörün adı:</label><br>
+    <input type="text" th:field="*{surveyName}" id="surveyName" required>
+    <span th:if="${#fields.hasErrors('surveyName')}" th:errors="*{surveyName}"></span><br>
+
+    <label for="surveySurname">Anketörün Soyadı:</label><br>
+    <input type="text" th:field="*{surveySurname}" id="surveySurname" required>
+    <span th:if="${#fields.hasErrors('surveySurname')}" th:errors="*{surveySurname}"></span><br>
+
+    <input type="submit" value="Güncelle">
+</form>
+</body>
+</html>

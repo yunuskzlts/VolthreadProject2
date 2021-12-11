@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VOLTHREAD SURVEY</title>
+</head>
+<body>
+
+<div align="center"><h1>Türkiye'nin En Eğlenceli Anketine Hoş Geldiniz.</h1></div>
+<form align="center" action="#" th:action="@{/addFootball}" th:object="${football}" method="post">
+
+    <!-- Details -->
+    <div text-align="center"class="form-control">
+        <label for="name" id="label-name">Ad:</label>
+        <input th:field="*{name}" id="name" required placeholder="Adınızı Girin." />
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+
+        <label for="surname" id="label-surname">Soyad:</label>
+        <input th:field="*{surname}" id="surname" required placeholder="Soyadınızı Girin." />
+        <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span><br>
+    </div>
+    <div class="form-control">
+            <label for="gender" id="label-gender">
+                Cinsiyetiniz Nedir?</label>
+
+            <select type="text" th:field="*{gender}" id="gender" required name="role" id="role">
+                <option value="Erkek">Erkek</option>
+                <option value="Kadın">Kadın</option>
+                <option value="Diğer">Diğer</option>
+            </select><br>
+            <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br>
+    </div>
+
+
+        <label for="birthDate">Doğum günü :</label>
+        <input type="text" th:field="*{birthDate}" id="birthDate"placeholder="YYYY-AA-GG" required>
+        <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span><br>
+
+
+
+        <label for="footballTeam" id="label-footballTeam">Takımınız:</label>
+        <input th:field="*{footballTeam}" id="footballTeam" required placeholder="Hangi Takımlısınız?." />
+        <span th:if="${#fields.hasErrors('footballTeam')}" th:errors="*{footballTeam}"></span><br>
+
+        <label for="whyFootballTeam" id="label-whyFootballTeam">Nedeni:</label>
+        <input th:field="*{whyFootballTeam}" id="whyFootballTeam" required placeholder="Neden Bu takımlısınız?." />
+        <span th:if="${#fields.hasErrors('whyFootballTeam')}" th:errors="*{whyFootballTeam}"></span><br>
+
+
+    <label for="surveyName">Anketörün adı :</label>
+    <input type="text" th:field="*{surveyName}" id="surveyName" required >
+    <span th:if="${#fields.hasErrors('surveyName')}" th:errors="*{surveyName}"></span><br>
+
+    <label for="surveySurname">Anketörün Soyadı :</label>
+    <input type="text" th:field="*{surveySurname}" id="surveySurname" required >
+    <span th:if="${#fields.hasErrors('surveySurname')}" th:errors="*{surveySurname}"></span><br><br><br>
+
+    <input type="submit" value="Ekle">
+
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mutluluk Anketimiz</title>
+</head>
+<body>
+
+<form align="center" action="#" th:action="@{/addHappiness}" th:object="${happiness}" method="post">
+    <label for="name">Adınız:</label>
+    <input type="text" th:field="*{name}" id="name" required >
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span><br>
+
+    <label for="surname">Soyadınız</label>
+    <input type="text" th:field="*{surname}" id="surname" required >
+    <span th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></span><br>
+
+    <label for="gender">Cinsiyetiniz:</label>
+    <input type="text" th:field="*{gender}" id="gender" required>
+    <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></span><br>
+
+    <label for="birthDate">Doğum gününüz:</label>
+    <input type="text" th:field="*{birthDate}" id="birthDate"placeholder="YYYY-AA-GG" required>
+    <span th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}"></span><br>
+
+    <label for="description">Nedeni:</label>
+    <input type="text" th:field="*{description}" id="description" required >
+    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span><br>
+
+    <label for="rate">Mutluluk Oranınız :</label>
+    <input type="number" min="1" max="10" th:field="*{rate}" id="rate" >
+    <span th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}"></span><br>
+
+    <label for="happiestThing">Sizi en mutlu eden şey :</label>
+    <input type="text" th:field="*{happiestThing}" id="happiestThing" required>
+    <span th:if="${#fields.hasErrors('happiestThing')}" th:errors="*{happiestThing}"></span><br>
+
+    <label for="mostDisappointingThing">Sizi en mutsuz eden şey :</label>
+    <input type="text" th:field="*{mostDisappointingThing}" id="mostDisappointingThing" required>
+    <span th:if="${#fields.hasErrors('mostDisappointingThing')}" th:errors="*{mostDisappointingThing}"></span><br>
+
+    <label for="surveyName">Anketörün adı :</label>
+    <input type="text" th:field="*{surveyName}" id="surveyName" required>
+    <span th:if="${#fields.hasErrors('surveyName')}" th:errors="*{surveyName}"></span><br>
+
+    <label for="surveySurname">Anketörün Soyadı :</label>
+    <input type="text" th:field="*{surveySurname}" id="surveySurname" required>
+    <span th:if="${#fields.hasErrors('surveySurname')}" th:errors="*{surveySurname}"></span><br><br>
+
+    <input type="submit" value="Anket ekle">
+</form>
+</body>
+</html>
